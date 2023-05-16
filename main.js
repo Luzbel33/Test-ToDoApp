@@ -125,11 +125,13 @@ DisplayTodos();
 function Save() {
 	const save = JSON.stringify(todos);
 	
-	localStorage.setItem("my_todos", save);
+	const key = window.location.hostname + "_my_todos_your_app_name";
+	localStorage.setItem(key, save);
 }
 
 function Load() {
-	const data = localStorage.getItem("my_todos");
+	const key = window.location.hostname + "_my_todos_your_app_name";
+	const data = localStorage.getItem(key);
 
 	if (data) {
 		todos = JSON.parse(data);
